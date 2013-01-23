@@ -1,0 +1,21 @@
+<table>
+	<tr>
+		<th><%= f.label(:name) %></th>
+		<td><%= f.text_field(:name) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:file_type) %></th>
+		<td><%= radio_button_tag("topic[file_type]", "doc") %><%= f.label(:file_type, "doc") %>
+			<%= radio_button_tag("topic[file_type]", "video") %><%= f.label(:file_type, "video") %>	
+		</td>
+	</tr>
+	<tr>
+		<th><%= f.label(:link) %></th>
+		<td><%= f.text_field(:link) %></td>
+	</tr>
+</table>
+
+
+
+
+

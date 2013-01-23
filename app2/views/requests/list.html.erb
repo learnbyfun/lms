@@ -1,0 +1,18 @@
+
+	<table>
+		<tr>
+			<th><%#= checkbox_tag %></th>
+			<th>Name</th>
+			<th>Course</th>
+			<th>Status</th>
+		</tr>
+		<% @requests.course.each do |req| %>
+			
+		<tr>
+			<td><%= req.name %></td>
+			<td><%#= req.courses.name %></td>
+			<td><%= link_to "Approve" %></td>
+		</tr>
+			<%# end %>
+		<% end %>
+	</table>

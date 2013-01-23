@@ -1,0 +1,5 @@
+<div class="comments">
+  <%= sorted_nested_li(@courses,:name) do |course| %>
+   	<%= (course.name + " | " + (link_to "Request", {:action => 'req' , :id => course.id}, :class => "course_anchor" ,:remote => true, :confirm => "Are you sure?") + "<ul></ul>").html_safe %>
+  <% end %>
+</div>

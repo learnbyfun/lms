@@ -1,0 +1,16 @@
+<%= link_to("New", {:action => "new"}) %>
+
+<table>
+   <tr>
+    <th>Topic Name</th>
+    <th>Action</th>
+  </tr>
+    <% @topics.each do |topic| %>
+  <tr>
+    <td><%= topic.name  %></td>
+    <td><%= link_to("Show", admin_topic_path(topic)) %></td>
+    <td><%= link_to("Edit", edit_admin_topic_path(topic)) %></td>
+    <td><%= link_to("Delete", admin_topic_path(topic), :method => :delete, :confirm => 'Are you sure?') %></td>
+    <% end %>
+  </tr>
+</table>

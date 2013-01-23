@@ -1,0 +1,13 @@
+<%= link_to "New", new_admin_course_path %>
+ <%= sorted_nested_li(@courses,:name) do |course| %>
+ 	<% temp_topics = course.topics     
+      tmp_topic_li = '';
+      if temp_topics.length > 0
+        temp_topics.each_with_index do |ttopic, tindex|
+            tmp_topic_li = tmp_topic_li + "<li>" + ttopic.name + " | " + (link_to " ", edit_admin_course_path(:id => course.id), :class => "icon-edit", :rel => "tooltip") + " | " + (link_to " ", admin_course_path(:id => course.id), :method => :delete, :confirm => "Are you sure?", :class => "icon-trash", :rel => "tooltip") + "</li>"
+        end
+      end
+      %>
+  	<%= (course.name + " | " + (link_to " ", edit_admin_course_path(:id => course.id), :class => "icon-edit", :rel => "tooltip") + " | " + (link_to " ", admin_course_path(:id => course.id), :method => :delete, :confirm => "Are you sure?", :class => "icon-trash", :rel => "tooltip") + "<ul>" + tmp_topic_li + "</ul>").html_safe %>
+  	   
+  <% end %>

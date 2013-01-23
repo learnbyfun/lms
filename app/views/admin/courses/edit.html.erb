@@ -1,0 +1,21 @@
+
+<% @page_title = "Edit Course: #{@course.name}" %>
+
+<%#= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div>
+  <h2>Update Course</h2>
+
+   <%= form_for(@course, :url => {:action => 'update', :controller => 'admin/courses' ,:id => @course.id}) do |f| %>
+  
+  
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Update") %>
+    </div>
+    
+  <% end %>
+</div>
+
+<!--<iframe src="http://docs.google.com/viewer?url=Yahanurldalo&embedded=true" width="600" height="780" style="border: none;"></iframe>-->

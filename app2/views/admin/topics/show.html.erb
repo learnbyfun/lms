@@ -1,0 +1,27 @@
+<% @page_title = "Show Topic" %>
+
+<%#= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div>
+  <h2>Show Topic</h2>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><%= @topic.name %></td>
+    </tr>
+    <tr>
+      <th>File Type</th>
+      <td><%= @topic.file_type %></td>
+    </tr>
+    <tr>
+      <th>Link</th>
+      <td><iframe src="http://docs.google.com/viewer?url=<%= @topic.link %>&embedded=true" width="600" height="780" style="border: none;"></iframe>
+</td>
+    </tr>
+    
+  </table>
+  
+</div>
+
+

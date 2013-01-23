@@ -1,0 +1,31 @@
+<%#= @course.topics %>
+
+<table>
+	<tr>
+		<th><%= f.label(:name) %></th>
+		<td><%= f.text_field(:name) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:parent) %></th>
+
+		<td><%= f.select :parent_id, nested_set_options(Course, @course) {|i| "#{'-' * i.level} #{i.name}" } %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:Topic) %></th>
+		<td>
+
+			<% @topics.each do |topic| %>
+			<%= check_box_tag(
+                            "course[topic_ids][]", 
+                            topic.id, 
+                            @course.topics.detect{|d| d == topic}) %>
+			<%= "#{topic.name}"%><br />
+		<% end %>
+		  
+		</td>
+	</tr>
+
+</table>
+
+
+

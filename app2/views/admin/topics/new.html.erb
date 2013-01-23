@@ -1,0 +1,12 @@
+<%#= link_to("List", {:action => 'list'}) %>
+
+<div>
+<%= form_for(:topic, :url => {:action => 'create'}) do |f| %>
+
+	<%= render(:partial => "form", :locals => {:f => f}) %>
+
+	<div>
+		<%= submit_tag("Create Topic") %>
+	</div>
+<% end %>
+</div>

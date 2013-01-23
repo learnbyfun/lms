@@ -1,0 +1,36 @@
+<div class="comments">
+  <%#= @course_requesed.inspect %> 
+  <%= sorted_nested_li(@courses,:name) do |course| %>
+<% 
+	course_requesed = Request.new
+	course_requesed = Request.where("course_id = ? AND user_id = ?", course.id,current_user.id)
+	link_caption = "Request"
+	action = "Request"
+	if course_requesed.count > 0	
+		if(course_requesed[0].approve==true)
+			link_caption = "Approved"
+			action = ""	
+		else
+			link_caption = "Cancel"	
+			action = "Cancel"
+		end	
+
+ 	end 
+ 	%>
+  	<%= (course.name + " | "  +  (link_to link_caption, {:action => "request_handler" ,:id => course.id, :act => action},:method => :post, :class => "course_anchor" ,:remote => true, :confirm => "Are you sure you?") + "<ul></ul>").html_safe %>
+  <% end %>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3 id="myModalLabel">Message</h3>
+</div>
+<div class="modal-body" id='model-message'>
+<p>One fine body…</p>
+</div>
+<div class="modal-footer">
+<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+</div>
+</div>

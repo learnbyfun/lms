@@ -1,0 +1,22 @@
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Course</th>
+		<th>Status</th>
+	</tr>
+	<% @requests.each do |req| %>
+	<tr>
+		<td><%= req.user.name %></td>
+		<td><%= req.course.name %></td>
+
+		<td><% if req.approve == false %>
+
+			<%= link_to "Approve", {:action => 'update',:course_id => req.course_id, :user_id => req.user_id}, :class => "approve_anchor", :remote => true, :method => :post %>
+			<% else %>
+				<%= link_to "Approved" %>
+
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
+</table>

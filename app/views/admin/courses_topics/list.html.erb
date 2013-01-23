@@ -1,0 +1,19 @@
+
+<%= form_for(:courseTopics, :url => {:action => "create", :course_id => @course.id}) do |f| %>
+<table>
+	<tr>
+		<th><%= @course.name %></th>
+	</tr>
+	<% @topics.each do |topic| %>
+	<tr>
+
+		<td><ul><%= check_box_tag  "course[topic_ids]", topic.id %><%= topic.name %></ul></td>
+		<% end %>
+	</tr>
+	<tr>
+		<td><%= submit_tag ("Assign") %></td>
+	</tr>
+	
+</table>
+<% end %>
+
